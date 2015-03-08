@@ -6,7 +6,7 @@ imgur user album image download script
 usage
 -----
 ```
-$ wget https://github.com/vbalien/imgur_downloader/raw/master/imgur.py
+$ wget https://github.com/vbalien/imgur_downloader/raw/master/imgur.py --no-check-certificate
 $ chmod +x ./imgur.py
 $ python ./imgur.py [name1 name2 ...]
 ```
