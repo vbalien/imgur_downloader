@@ -35,8 +35,7 @@ def downImgur(name, downDir = 'manga-down/'):
         item_title = item_title.replace('/', '-').replace('\\', '-').replace(':', '').replace('*', '').replace('?', '').replace('"', '').replace('\'', '').replace('<', '').replace('>', '').replace('|', '')
         if not os.path.isdir(downDir.encode('utf-8')+item_title.encode('utf-8')) :
             os.mkdir(downDir.encode('utf-8')+item_title.encode('utf-8'))
-            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max,
-                item_title, 0), end="\r", flush=True, file=utf8stdout)
+            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max, item_title, 0), end="\r", flush=True, file=utf8stdout)
 
         conn = http.client.HTTPConnection("imgur.com")
         conn.request("GET", "/a/"+item_url)
@@ -49,10 +48,9 @@ def downImgur(name, downDir = 'manga-down/'):
             item_source = item_source[item_source.find('<a href="/download/')+len('<a href="/download/'):]
             imgname = item_source[0:item_source.find('"')]
             urlretrieve("http://i.imgur.com/"+imgname+".jpg",
-                u"{0}{1}/{2}.jpg".format(downDir, item_title, i))
+                "{0}{1}/{2}.jpg".format(downDir, item_title, i))
             i += 1
-            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max, item_title,
-                i/item_max * 100), end="\r", flush=True, file=utf8stdout)
+            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max, item_title, i/item_max * 100), end="\r", file=utf8stdout)
         print("")
     print('{0}::done!'.format(name))
 
