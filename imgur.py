@@ -35,7 +35,7 @@ def downImgur(name, downDir = 'manga-down/'):
         item_title = item_title.replace('/', '-').replace('\\', '-').replace(':', '').replace('*', '').replace('?', '').replace('"', '').replace('\'', '').replace('<', '').replace('>', '').replace('|', '')
         if not os.path.isdir(downDir.encode('utf-8')+item_title.encode('utf-8')) :
             os.mkdir(downDir.encode('utf-8')+item_title.encode('utf-8'))
-            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max, item_title, 0), end="\r", flush=True, file=utf8stdout)
+            print("[{0}/{1}][{3:3.0f}%]'{2}' Downloading...".format(cnt, max, item_title, 0), end="\r", file=utf8stdout)
 
         conn = http.client.HTTPConnection("imgur.com")
         conn.request("GET", "/a/"+item_url)
